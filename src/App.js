@@ -35,7 +35,7 @@ export default class App extends Component {
         </div>
       );
     }else{
-      <h1>This device is not supported</h1>
+     return( <h1>This device is not supported</h1>)
     }
   };
 
