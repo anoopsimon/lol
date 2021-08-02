@@ -1,9 +1,8 @@
-import "./App.css";
 import {
   BrowserView,
   MobileView,
-  // isBrowser,
-  // isMobile,
+  isBrowser,
+  isMobile,
 } from "react-device-detect";
 import React, { Component } from "react";
 
@@ -15,24 +14,30 @@ export default class App extends Component {
       loading: true,
     };
   }
-  mobileView= () =>{
-    return (<MobileView>
-      <h1> This is rendered only on mobile </h1>
-    </MobileView>)
-  }
+
+  renderContent = () => {
+    if (isMobile) {
+      return (
+        <div>
+          
+          <MobileView>
+            <h1> {this.state.output} </h1>
+          </MobileView>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <BrowserView>
+            <h1> {this.state.output} </h1>
+          </BrowserView>
+        </div>
+      );
+    }
+  };
+
   render() {
-    return (
-      <div>
-        <p>{this.state.output}</p>
-        <BrowserView>
-          <h1> This is rendered only in browser </h1>
-        </BrowserView>
-        <MobileView>
-          <h1> This is rendered only on mobile </h1>
-        </MobileView>
-        {this.mobileView}
-      </div>
-    );
+    return <div>{this.renderContent()}</div>;
   }
 
   componentDidMount = async () => {
