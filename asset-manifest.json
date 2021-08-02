@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/lol/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/lol/static/js/main.679417c9.chunk.js",
+    "main.js.map": "/lol/static/js/main.679417c9.chunk.js.map",
+    "runtime-main.js": "/lol/static/js/runtime-main.3ec178a0.js",
+    "runtime-main.js.map": "/lol/static/js/runtime-main.3ec178a0.js.map",
+    "static/js/2.808a28ef.chunk.js": "/lol/static/js/2.808a28ef.chunk.js",
+    "static/js/2.808a28ef.chunk.js.map": "/lol/static/js/2.808a28ef.chunk.js.map",
+    "index.html": "/lol/index.html",
+    "static/css/main.d87cbb72.chunk.css.map": "/lol/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.808a28ef.chunk.js.LICENSE.txt": "/lol/static/js/2.808a28ef.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3ec178a0.js",
+    "static/js/2.808a28ef.chunk.js",
+    "static/css/main.d87cbb72.chunk.css",
+    "static/js/main.679417c9.chunk.js"
+  ]
+}
