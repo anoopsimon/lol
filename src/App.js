@@ -16,23 +16,26 @@ export default class App extends Component {
   }
 
   renderContent = () => {
+    var message =  <h1> {this.state.output} </h1>;
     if (isMobile) {
       return (
         <div>
           
           <MobileView>
-            <h1> {this.state.output} </h1>
+          {message}
           </MobileView>
         </div>
       );
-    } else {
+    } else if(isBrowser){
       return (
         <div>
           <BrowserView>
-            <h1> {this.state.output} </h1>
+          {message}
           </BrowserView>
         </div>
       );
+    }else{
+      <h1>This device is not supported</h1>
     }
   };
 
@@ -43,8 +46,7 @@ export default class App extends Component {
   componentDidMount = async () => {
     let joke = "";
 
-    const apiUrl =
-      "https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=racist";
+    const apiUrl = "https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=racist";
     try {
       this.setState({
         loading: true,
