@@ -15,6 +15,11 @@ export default class App extends Component {
       loading: true,
     };
   }
+  mobileView= () =>{
+    return (<MobileView>
+      <h1> This is rendered only on mobile </h1>
+    </MobileView>)
+  }
   render() {
     return (
       <div>
@@ -25,6 +30,7 @@ export default class App extends Component {
         <MobileView>
           <h1> This is rendered only on mobile </h1>
         </MobileView>
+        {this.mobileView}
       </div>
     );
   }
