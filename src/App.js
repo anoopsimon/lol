@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 import {
   BrowserView,
   MobileView,
-  isBrowser,
-  isMobile,
+  // isBrowser,
+  // isMobile,
 } from "react-device-detect";
 import React, { Component } from "react";
 
