@@ -5,48 +5,54 @@ import {
   isMobile,
 } from "react-device-detect";
 import React, { Component } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col, Card } from "react-bootstrap";
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       output: "",
       loading: true,
+      style: {
+        marginTop: "10%",
+      },
     };
   }
 
-  renderContent = () => {
-    var message =  <h1> {this.state.output} </h1>;
-    if (isMobile) {
-      return (
-        <div>
-          
-          <MobileView>
-          {message}
-          </MobileView>
-        </div>
-      );
-    } else if(isBrowser){
-      return (
-        <div>
-          <BrowserView>
-          {message}
-          </BrowserView>
-        </div>
-      );
-    }else{
-     return( <h1>This device is not supported</h1>)
-    }
-  };
 
-  render() {
-    return <div>{this.renderContent()}</div>;
+  render(){
+    return(
+     <div>{this.renderJokes()}</div>
+    )
   }
+  
+  renderJokes = () => {
+    return (
+      <div>
+        <Container style={this.state.style}>
+          <Row className="justify-content-md-center">
+            <Col xs lg="2"></Col>
+            <Col md="auto">
+              <Card style={{ width: "20rem" }} className="shadow-lg">
+                <Card.Body>
+                  <blockquote className="blockquote  mb-0">
+                    {this.state.output}
+                  </blockquote>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xs lg="2"></Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  };
 
   componentDidMount = async () => {
     let joke = "";
 
-    const apiUrl = "https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=racist";
+    const apiUrl =
+      "https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=racist";
     try {
       this.setState({
         loading: true,
