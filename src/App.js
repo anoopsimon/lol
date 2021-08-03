@@ -5,7 +5,7 @@ import {
   isMobile,
 } from "react-device-detect";
 import React, { Component } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
