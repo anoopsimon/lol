@@ -7,6 +7,8 @@ import {
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import PullToRefresh from 'react-simple-pull-to-refresh';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,15 @@ export default class App extends Component {
     };
   }
 
-
+ handleRefresh = () => {
+    return new Promise(res => {
+      setTimeout(() => {
+        res(this.getJoke());
+      }, 100);
+    });
+  }
+ 
+  
   render(){
     return(
      <div>{this.renderJokes()}</div>
@@ -29,6 +39,7 @@ export default class App extends Component {
   renderJokes = () => {
     return (
       <div>
+        <PullToRefresh onRefresh={this.handleRefresh}>
         <Container style={this.state.style}>
           <Row className="justify-content-md-center">
             <Col xs lg="2"></Col>
@@ -44,11 +55,16 @@ export default class App extends Component {
             <Col xs lg="2"></Col>
           </Row>
         </Container>
+        </PullToRefresh>
       </div>
     );
   };
 
   componentDidMount = async () => {
+   await this.getJoke();
+  };
+
+  getJoke = async () => {
     let joke = "";
 
     const apiUrl =
